@@ -12,7 +12,7 @@ router.get('/get-verified-customers',authenticateJWT,getVerifiedCustomers);
 router.get('/get-activated-customers',authenticateJWT,getActivatedCustomers);
 router.post('/plans', authenticateJWT,createPlan);
 router.get('/getplans',getPlan);
-router.get('/getplans/:planId', authenticateJWT,getPlanById);
+// router.get('/getplans/:planId', authenticateJWT,getPlanById);
 router.get('/get-document-verification-logs', authenticateJWT,logs);
 router.get('/statistics',authenticateJWT,statistics);
 

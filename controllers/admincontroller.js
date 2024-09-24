@@ -9,7 +9,7 @@ const prisma = new PrismaClient();
 const router = express.Router();
 
 // Register admin
-router.post('/register',authenticateJWT, async (req, res) => {
+router.post('/register', async (req, res) => {
     const { name, email, password } = req.body;
 
     try {

@@ -30,24 +30,7 @@ const createPlan = async (req, res) => {
     res.status(500).json({ message: 'Failed to fetch plans' });
   }
   };
-const getPlanById = async (req, res) => {
-    const { planId } = req.params;
-  
-    try {
-      const plan = await prisma.plan.findUnique({
-        where: { id: parseInt(planId) },
-      });
-  
-      if (!plan) {
-        return res.status(404).json({ message: 'Plan not found' });
-      }
-  
-      res.json(plan);
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({ message: 'Failed to fetch plan' });
-    }
-  };
+
   const getPendingCustomers = async (req, res) => {
     const { search } = req.query; // Get the search query
 
@@ -183,7 +166,7 @@ const getAllServices = async (req, res) => {
 const selectService = async (req, res) => {
     const { planId, customerId,name } = req.body;
     try {
-        console.log(planId);
+       // console.log(planId);
         const service = await prisma.service.create({
             data: {
                 name: name,
@@ -344,4 +327,4 @@ const statistics = async (req, res) => {
 
 
 
-module.exports = {createPlan,getPlan,getPlanById, getPendingCustomers, getVerifiedCustomers,getActivatedCustomers, getAllServices, selectService, activateService ,logs,statistics};
+module.exports = {createPlan,getPlan, getPendingCustomers, getVerifiedCustomers,getActivatedCustomers, getAllServices, selectService, activateService ,logs,statistics};

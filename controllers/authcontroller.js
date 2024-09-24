@@ -114,7 +114,7 @@ const resendOTP = async (req, res) => {
     try {
         const { email } = req.body;
         const customer = await prisma.customer.findUnique({ where: { email } });
-
+        console.log("Inside Resend OTP")
         if (!customer) {
             return res.status(404).json({ message: 'Customer not found' });
         }
